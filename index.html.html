@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaibhavi 💖</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body{
+      overflow-x:hidden;
+      background: radial-gradient(circle at center, #1a0011 0%, #000000 100%);
+      color:white;
+      min-height:100vh;
+      position:relative;
+    }
+
+    .overlay{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(to bottom,rgba(0,0,0,0.45),rgba(0,0,0,0.85));
+      z-index:-2;
+    }
+
+    .stars{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      overflow:hidden;
+    }
+
+    .star{
+      position:absolute;
+      width:3px;
+      height:3px;
+      background:white;
+      border-radius:50%;
+      animation:twinkle 3s infinite alternate;
+      will-change: transform, opacity;
+    }
+
+    @keyframes twinkle{
+      from{opacity:0.2;}
+      to{opacity:1;transform:scale(1.5);}
+    }
+
+    .container{
+      width:100%;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
+
+    .card{
+      width:100%;
+      margin: auto;
+      max-width:700px;
+      padding:40px 30px;
+      border-radius:30px;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(15px);
+      -webkit-backdrop-filter:blur(15px);
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:0 0 40px rgba(255,105,180,0.15);
+      position:relative;
+      overflow:hidden;
+    }
+
+    h1{
+      text-align:center;
+      font-size:4rem;
+      color:#ff66b2;
+      text-shadow:0 0 20px #ff66b2;
+      animation:pulse 2s infinite alternate;
+    text-shadow: 0 0 10px #ff66b2,0 0 25px #ff66b2,
+0 0 60px #ff66b2;
+
+    }
+
+    @keyframes pulse{
+      from{transform:scale(1);}
+      to{transform:scale(1.02);}
+    }
+
+    .typing{
+      text-align:center;
+      margin-top:25px;
+      font-size:1.5rem;
+      color:#ffe4f2;
+      min-height:60px;
+    }
+
+    .tags{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:30px;
+    }
+
+    .tag{
+      cursor:pointer;
+      padding:10px 20px;
+      border-radius:40px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.12);
+      color:#ffd6eb;
+      transition:0.3s ease;
+    }
+
+    .tag:hover, .tag:active{
+      transform:translateY(-3px);
+      box-shadow:0 0 15px rgba(255,105,180,0.3);
+      background:rgba(255,255,255,0.1);
+    }
+
+    .message{
+      margin-top:40px;
+      text-align:center;
+      font-size:1.2rem;
+      line-height:2;
+      color:#f3f3f3;
+    }
+
+    .question-box{
+      margin-top:40px;
+      background:rgba(255,255,255,0.04);
+      padding:30px 20px;
+      border-radius:25px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    .question-box h2{
+      color:#ff99cc;
+      font-size:2rem;
+      margin-bottom:20px;
+    }
+
+    .question-box p{
+      font-size:1.2rem;
+      line-height:1.8;
+    }
+
+    .btns{
+      margin-top:30px;
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    button{
+      border:none;
+      padding:14px 35px;
+      border-radius:50px;
+      font-size:1rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s ease;
+    }
+
+    .yes{
+      background:linear-gradient(45deg,#ff4da6,#ff66cc);
+      color:white;
+      box-shadow:0 0 20px rgba(255,105,180,0.4);
+    }
+
+    .yes:hover{
+      transform:scale(1.05);
+    }
+
+    .no{
+      background:linear-gradient(45deg,#ff1744,#ff4d6d);
+      color:white;
+      position:relative;
+    }
+
+    .letter-btn{
+      margin:40px auto 0;
+      display:block;
+      background:linear-gradient(45deg,#a855f7,#ff4da6);
+      color:white;
+      box-shadow:0 0 20px rgba(255,105,180,0.35);
+    }
+
+    .letter{
+      margin-top:40px;
+      padding:30px 20px;
+      border-radius:25px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      display:none;
+      animation:fade 0.8s ease forwards;
+    }
+
+    @keyframes fade{
+      from{opacity:0;transform:translateY(20px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    .letter h2{
+      text-align:center;
+      color:#ff99cc;
+      margin-bottom:20px;
+      font-size:2rem;
+    }
+
+    .letter p{
+      text-align:center;
+      line-height:2;
+      font-size:1.1rem;
+      color:#f1f1f1;
+    }
+
+    .footer{
+      margin-top:40px;
+      text-align:center;
+      font-size:1rem;
+      color:#ddd;
+    }
+
+    .heart{
+      position:fixed;
+      color:#ff4da6;
+      animation:float 6s linear infinite;
+      z-index:-1;
+      opacity:0.6;
+      will-change: transform;
+    }
+
+    @keyframes float{
+      from{
+        transform:translateY(100vh) scale(0);
+      }
+      to{
+        transform:translateY(-120vh) scale(1.4);
+      }
+    }
+
+    canvas{
+      position:fixed;
+      top:0;
+      left:0;
+      pointer-events:none;
+      z-index: 100;
+    }
+
+    @media(max-width:768px){
+      .fake-chat{
+        display:none !important;
+      }
+
+      .card{
+        padding:30px 20px;
+        border-radius: 20px;
+      }
+
+      h1{
+        font-size:2.8rem;
+      }
+
+      .typing{
+        font-size:1.1rem;
+        min-height: 50px;
+      }
+
+      .question-box h2 {
+        font-size: 1.6rem;
+      }
+
+      .question-box p {
+        font-size: 1.1rem;
+      }
+    }
+    .bg-slider{
+  position:fixed;
+  inset:0;
+  z-index:-5;
+  overflow:hidden;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+
+  background-size:cover;
+  background-position:center;
+
+  opacity:0;
+
+  animation:
+  zoomEffect 12s linear infinite;
+
+  transition:
+  opacity 2s ease;
+}
+
+.slide.active{
+  opacity:1;
+}
+
+.slide::after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  backdrop-filter:blur(8px);
+
+  background:
+  rgba(0,0,0,.45);
+}
+
+.slide:nth-child(1){
+  background-image:url("1.jpg");
+}
+
+.slide:nth-child(2){
+  background-image:url("2.jpg");
+}
+
+.slide:nth-child(3){
+  background-image:url("3.jpg");
+}
+
+.slide:nth-child(4){
+  background-image:url("4.jpg");
+}
+
+@keyframes zoomEffect{
+
+0%{
+transform:scale(1);
+}
+
+100%{
+transform:scale(1.15);
+}
+
+}
+
+.floating-photos{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:-1;
+
+}
+
+.floating-photos img{
+
+position:absolute;
+
+width:110px;
+
+height:110px;
+
+border-radius:25px;
+
+object-fit:cover;
+
+border:2px solid rgba(255,255,255,.2);
+
+box-shadow:0 0 25px rgba(255,255,255,.15);
+
+animation:floatPhoto 14s infinite ease-in-out;
+
+}
+
+.floating-photos img:nth-child(1){
+
+top:15%;
+left:5%;
+
+}
+
+.floating-photos img:nth-child(2){
+
+top:60%;
+right:5%;
+
+animation-delay:3s;
+
+}
+
+.floating-photos img:nth-child(3){
+
+top:35%;
+right:18%;
+
+animation-delay:6s;
+
+}
+
+@keyframes floatPhoto{
+
+0%{
+transform:translateY(0px) rotate(0deg);
+}
+
+50%{
+transform:translateY(-30px) rotate(6deg);
+}
+
+100%{
+transform:translateY(0px) rotate(0deg);
+}
+
+}
+  </style>
+</head>
+<body>
+    <div class="floating-photos">
+
+<img src="1.jpg">
+<img src="2.jpg">
+<img src="3.jpg">
+<img src="4.jpg">
+<img src="5.jpg">
+<img src="6.jpg">
+
+</div>
+
+    <div class="bg-slider">
+  <div class="slide active"></div>
+  <div class="slide"></div>
+  <div class="slide"></div>
+  <div class="slide"></div>
+  <div class="slide"></div>
+  <div class="slide"></div>
+  <div class="slide"></div>
+</div>
+
+  <div class="overlay"></div>
+  <div class="stars" id="stars"></div>
+  <canvas id="fireworks"></canvas>
+
+  <div class="container">
+    <div class="card">
+
+      <div style="text-align:center;margin-bottom:20px;">
+        <h2 style="font-size:1.5rem;color:#ffd6eb;font-weight:500;letter-spacing:1px;">
+          🎂 Happy Birthday Vaibhavi 🎂
+        </h2>
+      </div>
+
+      <h1>Vaibhavi 💖</h1>
+
+      <div class="typing" id="typing"></div>
+
+      <div class="tags">
+        <div class="tag" onclick="showShayari('smile')">✨ Prettiest Smile</div>
+        <div class="tag" onclick="showShayari('soul')">🌸 Beautiful Soul</div>
+        <div class="tag" onclick="showShayari('favorite')">💖 Favorite Person</div>
+      </div>
+
+      <div
+        id="shayariBox"
+        style="margin-top:25px;text-align:center;font-size:1.2rem;line-height:1.8;color:#ffd6eb;min-height:60px;transition:0.4s;"
+      ></div>
+
+      <div class="message">
+        Happy Birthday Vaibhavi 🎂✨ <br><br>
+        खरं सांगायचं तर तू फक्त special नाहीस... 💖<br><br>
+        तू माझ्यासाठी एक vibe आहेस ✨<br>
+        तुझं हसू mood better करतं 🌸<br>
+        तुझं बोलणं peace देतं ☁️<br>
+        आणि तुझी presence सगळं सुंदर बनवते 💕
+      </div>
+
+      <div class="question-box">
+        <h2>एक छोटीशी गोष्ट विचारायची होती 👉👈</h2>
+        <p>माझ्यासोबत एका dreamy coffee date ला येशील का? ☕🌸🍫</p>
+        <div class="btns">
+          <button class="yes" onclick="yesClicked()">Yes 💖</button>
+          <button class="no" id="noBtn">No 😅</button>
+        </div>
+      </div>
+
+      <!-- Date Planner -->
+      <div class="question-box" id="plannerSection" style="margin-top:40px;display:none;">
+        <h2>📅 Coffee Date Planner</h2>
+        <p>आपल्या cute coffee date साठी day आणि time fix करूया 💖</p>
+        <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+          <input 
+            type="date" 
+            id="dateInput"
+            style="padding:12px 20px;border:none;border-radius:15px;background:rgba(255,255,255,0.1);color:white;font-size:1rem;outline:none;border:1px solid rgba(255,255,255,0.15);"
+          >
+          <input 
+            type="time" 
+            id="timeInput"
+            style="padding:12px 20px;border:none;border-radius:15px;background:rgba(255,255,255,0.1);color:white;font-size:1rem;outline:none;border:1px solid rgba(255,255,255,0.15);"
+          >
+        </div>
+        <button onclick="saveDate()" class="letter-btn" style="margin-top:25px;">Confirm Date 💌</button>
+        <div id="dateResult" style="margin-top:20px;font-size:1.2rem;color:#ffd6eb;font-weight:500;"></div>
+      </div>
+
+      <button class="letter-btn" onclick="openLetter()">
+        Open Secret Letter 💌
+      </button>
+
+      <div class="letter" id="letter">
+        <h2>For Vaibhavi 💖</h2>
+        <p>
+          Thank you for existing ✨<br><br>
+          तुझ्यासोबत बोलताना वेळ कसा जातो कळत नाही 🌸<br>
+          तू आनंदी असलीस की सगळं सुंदर वाटतं 💕<br><br>
+          I just want to see you smiling forever 😊
+        </p>
+      </div>
+
+      <!-- Background Music (Auto-plays on interaction) -->
+      <audio id="bgMusic" loop playsinline style="display:none;">
+        <source src="love-me-thoda-aur.mp3" type="audio/mp3">
+      </audio>
+
+    </div>
+  </div>
+   
+  <script>
+document.addEventListener("mousemove",(e)=>{
+
+const slides=document.querySelectorAll(".slide");
+
+const x=(e.clientX/window.innerWidth-0.5)*20;
+
+const y=(e.clientY/window.innerHeight-0.5)*20;
+
+slides.forEach(slide=>{
+
+slide.style.transform=
+`scale(1.1)
+translate(${x}px,${y}px)`;
+
+});
+
+});
+document.addEventListener("touchmove",(e)=>{
+
+const touch=e.touches[0];
+
+const x=(touch.clientX/window.innerWidth-0.5)*15;
+
+const y=(touch.clientY/window.innerHeight-0.5)*15;
+
+document
+.querySelectorAll(".slide")
+.forEach(slide=>{
+
+slide.style.transform=
+`scale(1.1)
+translate(${x}px,${y}px)`;
+
+});
+
+});
+
+
+       const slides=document.querySelectorAll(".slide");
+let currentSlide=0;
+
+setInterval(()=>{
+
+  slides[currentSlide].classList.remove("active");
+
+  currentSlide=(currentSlide+1)%slides.length;
+
+  slides[currentSlide].classList.add("active");
+
+},4000);
+
+    const music = document.getElementById('bgMusic');
+    music.volume = 0.7;
+
+    function startMusic() {
+      if (music.paused) {
+        music.play().catch(err => console.log("Music play triggered."));
+      }
+    }
+
+    window.addEventListener('click', startMusic, { once: true });
+    window.addEventListener('touchstart', startMusic, { once: true });
+    window.addEventListener('scroll', startMusic, { once: true });
+
+    const text = 'Happy Birthday Vaibhavi 💖 You make everything feel magical ✨';
+    let index = 0;
+    function typeText(){
+      if(index < text.length){
+        document.getElementById('typing').innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeText,60);
+      }
+    }
+    typeText();
+
+    function showShayari(type){
+      const box=document.getElementById('shayariBox');
+      if(type==='smile'){
+        box.innerHTML=`✨ तुझ्या हसण्यात अशी magic आहे...<br>
+        जी माझा worst day पण beautiful बनवते 💖`;
+      }
+      if(type==='soul'){
+        box.innerHTML=`🌸 काही लोक फक्त सुंदर दिसत नाहीत...<br>
+        त्यांचा soul पण खूप pure असतो 💕`;
+      }
+      if(type==='favorite'){
+        box.innerHTML=`💖 हजारो लोकांमध्ये पण...<br>
+        माझी नजर नेहमी तुझ्यावरच येते ✨`;
+      }
+    }
+
+    for(let i=0;i<12;i++){
+      const heart=document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML='❤️';
+      heart.style.left=Math.random()*100+'vw';
+      heart.style.fontSize=(Math.random()*20+12)+'px';
+      heart.style.animationDuration=(Math.random()*5+4)+'s';
+      document.body.appendChild(heart);
+    }
+
+    const stars=document.getElementById('stars');
+    for(let i=0;i<40;i++){
+      const star=document.createElement('div');
+      star.classList.add('star');
+      star.style.left=Math.random()*100+'vw';
+      star.style.top=Math.random()*100+'vh';
+      star.style.animationDuration=(Math.random()*3+2)+'s';
+      stars.appendChild(star);
+    }
+
+    const noBtn=document.getElementById('noBtn');
+    noBtn.addEventListener('mouseover', moveNoButton);
+    noBtn.addEventListener('touchstart', moveNoButton);
+
+    function moveNoButton(e) {
+      let x=Math.random()*200-100;
+      let y=Math.random()*200-100;
+      noBtn.style.transform=`translate(${x}px, ${y}px)`;
+    }
+
+    function saveDate(){
+      const date=document.getElementById('dateInput').value;
+      const time=document.getElementById('timeInput').value;
+      if(date && time){
+        document.getElementById('dateResult').innerHTML=
+        `✨ Date Fixed ✨ <br><br> ☕ Coffee Date on <b>${date}</b> at <b>${time}</b> 💖`;
+      } else {
+        alert('Please select date and time 💕');
+      }
+    }
+
+    function openLetter(){
+      document.getElementById('letter').style.display='block';
+      document.getElementById('letter').scrollIntoView({
+        behavior:'smooth'
+      });
+    }
+   
+    function yesClicked(){
+      alert('Yayyyyy 💖✨ Best Day Ever 🌸');
+      createFirework();
+      const planner=document.getElementById('plannerSection');
+      planner.style.display='block';
+      planner.scrollIntoView({
+        behavior:'smooth'
+      });
+    }
+
+    const canvas=document.getElementById('fireworks');
+    const ctx=canvas.getContext('2d');
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+    let particles=[];
+
+    function createFirework(){
+      let x=Math.random()*canvas.width;
+      let y=Math.random()*canvas.height/2;
+      for(let i=0;i<60;i++){
+        particles.push({
+          x:x,
+          y:y,
+          radius:Math.random()*2.5,
+          color:`hsl(${Math.random()*360},100%,60%)`,
+          speedX:(Math.random()-0.5)*7,
+          speedY:(Math.random()-0.5)*7,
+          alpha:1
+        });
+      }
+    }
+
+    function animate(){
+      requestAnimationFrame(animate);
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particles.forEach((p,index)=>{
+        p.x+=p.speedX;
+        p.y+=p.speedY;
+        p.alpha-=0.015;
+        ctx.globalAlpha=p.alpha;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
+        ctx.fillStyle=p.color;
+        ctx.fill();
+        if(p.alpha<=0){ particles.splice(index,1); }
+      });
+    }
+    setInterval(createFirework,5000);
+    animate();
+
+    window.addEventListener('resize',()=>{
+      canvas.width=window.innerWidth;
+      canvas.height=window.innerHeight;
+    });
+  </script>
+
+  <script>
+    const loveNotes = [
+      'You look cutest when you smile 💖',
+      'Vaibhavi = Pure Happiness ✨',
+      'Your vibe feels like peace 🌸',
+      'Some people are magic... and you are one of them 💕'
+    ];
+
+    setInterval(()=>{
+      const note=document.createElement('div');
+      note.innerHTML=loveNotes[Math.floor(Math.random()*loveNotes.length)];
+      note.style.position='fixed';
+      note.style.bottom='20px';
+      note.style.right='20px';
+      note.style.left='20px';
+      note.style.textAlign='center';
+      note.style.padding='12px 20px';
+      note.style.background='rgba(0,0,0,0.8)';
+      note.style.backdropFilter='blur(10px)';
+      note.style.border='1px solid rgba(255,105,180,0.3)';
+      note.style.borderRadius='15px';
+      note.style.color='white';
+      note.style.zIndex='9999';
+      note.style.fontSize='0.95rem';
+      document.body.appendChild(note);
+
+      setTimeout(()=>{ note.remove(); },3500);
+    },10000);
+
+    for(let i=0;i<15;i++){
+      const petal=document.createElement('div');
+      petal.innerHTML='🌸';
+      petal.style.position='fixed';
+      petal.style.left=Math.random()*100+'vw';
+      petal.style.top='-20px';
+      petal.style.fontSize=(Math.random()*15+12)+'px';
+      petal.style.animation=`petalFall ${Math.random()*6+5}s linear infinite`;
+      petal.style.opacity='0.7';
+      petal.style.zIndex='0';
+      document.body.appendChild(petal);
+    }
+
+    const petalStyle=document.createElement('style');
+    petalStyle.innerHTML=`
+    @keyframes petalFall{
+      from{ transform:translateY(-10vh) rotate(0deg); }
+      to{ transform:translateY(120vh) rotate(360deg); }
+    }
+    `;
+    document.head.appendChild(petalStyle);
+
+    const intro=document.createElement('div');
+    intro.innerHTML=`
+    <div id="introScreen" style="position:fixed;inset:0;background:black;display:flex;justify-content:center;align-items:center;flex-direction:column;z-index:10000;color:white;font-size:1.5rem;letter-spacing:2px;transition:opacity 0.5s ease;">
+      <div style="animation:pulse 2s infinite;">✨ Loading Special Surprise ✨</div>
+    </div>
+    `;
+    document.body.appendChild(intro);
+
+    setTimeout(()=>{
+      const screen = document.getElementById('introScreen');
+      if(screen) {
+        screen.style.opacity='0';
+        setTimeout(()=>{ screen.remove(); },500);
+      }
+    },2000);
+  </script>
+</body>
+</html>
